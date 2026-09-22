@@ -15,6 +15,14 @@ router.post("/sign-up", async (req, res) => {
     return res.send("Username already taken.");
   }
 
+  const emailInDatabase = await User.findOne({
+    email: req.body.email
+  })
+
+  if (emailInDatabase) {
+    return res.send("Email already registered!")
+  }
+
   if (req.body.password !== req.body.confirmPassword) {
     return res.send("Password and Confirm Password must match");
   }

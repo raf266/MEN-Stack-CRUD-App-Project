@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Incidents</h1>
+
+    <a href="/incidents/new">Report a New Incident</a>
+
+    <% incidents.forEach((incident) =>{ %>
+        <h2>
+            <a href="/incidents/<%= incident._id %>">
+                <%= incident.title %>
+            </a>
+        </h2>
+
+        <p>Severity: <%= incident.severity %></p>
+        <p>Status: <%= incident.status %></p>
+    <% }) %>
+</body>
+</html>
