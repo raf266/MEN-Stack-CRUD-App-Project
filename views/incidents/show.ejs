@@ -11,12 +11,17 @@
     <h1><%= incident.title %></h1>
 
     <p>Description: <%= incident.description %></p>
-
     <p>Severity: <%= incident.severity %></p>
-
     <p>Status: <%= incident.status %></p>
-
     <p>Created At: <%= incident.createdAt.toLocaleDateString()  %></p>
+
+    <p>Logged-in user ID: <%= user ? user._id : "Not signed in" %></p>
+    <p>Incident creator ID: <%= incident.createdBy %></p>
+
+
+    <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+        <a href="/incidents/<%= incident._id %>/edit">Edit Incident</a>
+        <% } %>
 
     <a href="/incidents">Back to Incidents</a>
 

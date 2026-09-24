@@ -27,6 +27,23 @@ router.get("/:incidentId", async (req,res) =>{
     })
 })
 
+router.get("/:incidentId/edit", isSignedIn, async (req, res)=>{
+    const incident = await Incident.findById(req.params.incidentId)
+
+    if (!incident) {
+        return res.status(404).send("Incident not found!")
+    }
+
+    if (incident.createdBy.toString() !== req.session.user._id.toString()) {
+        return res.status(403).send("You are not authorized to edit this incident")
+    }
+
+    res.render("incidents/edit.ejs", {
+        incident: incident
+    })
+})
+
+
 router.post("/", isSignedIn, async (req,res)=>{
     req.body.createdBy = req.session.user._id
 
@@ -34,5 +51,26 @@ router.post("/", isSignedIn, async (req,res)=>{
 
     res.redirect(`/incidents/${incident._id}`)
 })  
+
+router.put("/:incidentId", isSignedIn, async (req,res)=>{
+    const incident = await Incident.findById(req.params.incidentId)
+
+    if (!incident) {
+        return res.status(404).send("Incident not found!")
+    }
+
+    if (incident.createdBy.toString() !== req.session.user._id.toString()) {
+        return res.status(403).send("You are not authorized to edit this incident!")
+    }
+
+    incident.title = req.body.title
+    incident.description = req.body.description
+    incident.severity = req.body.severity
+    incident.status = req.body.status
+
+    await incident.save()
+
+    res.redirect(`/incidents/${incident._id}`)
+})
 
 module.exports = router;

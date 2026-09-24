@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Incident</h1>
+
+    <form action="/incidents/<%= incident._id %>?_method=PUT" method="POST">
+        <label for="title">Incident Title:</label>
+        <input type="text" id="title" name="title" value="<%= incident.title %>" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="<%= incident.description %>">
+
+        <label for="severity">Severity:</label>
+        <select name="severity" id="severity" required>
+            <option value="Low" <%= incident.severity === "Low" ? "selected" : "" %>>Low</option>
+            <option value="Medium" <%= incident.severity === "Medium" ? "selected" : "" %>>Medium</option>                                    
+            <option value="High" <%= incident.severity === "High" ? "selected" : "" %>>High</option>
+            <option value="Critical" <%= incident.severity === "Critical" ? "selected" : "" %>>Critical</option>
+        </select>
+
+        <label for="status">Status:</label>
+        <select name="status" id="status" required>
+            <option value="Open" <%= incident.status === "Open" ? "selected" : "" %>>Open</option>
+            <option value="Investigating" <%= incident.status === "Investigating" ? "selected" : "" %>>Investigating</option>
+            <option value="Contained" <%= incident.status === "Contained" ? "selected" : "" %>>Contained</option>
+            <option value="Resolved" <%= incident.status === "Resolved" ? "selected" : "" %>>Resolved</option>
+            <option value="Closed" <%= incident.status === "Closed" ? "selected" : "" %>>Closed</option>
+        </select>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+
+    <a href="/incidents/<%= incident._id %>">Cancel</a>
+</body>
+</html>
