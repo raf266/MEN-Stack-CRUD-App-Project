@@ -4,7 +4,9 @@ const Incident = require("../models/Incident.js")
 const isSignedIn = require("../middleware/is-signed-in.js")
 
 router.get("/", async (req, res)=>{
-    const incidents = await Incident.find();
+    const incidents = await Incident.find({
+        isDeleted: false
+    });
 
     res.render("incidents/index.ejs", {
         incidents: incidents
@@ -71,6 +73,25 @@ router.put("/:incidentId", isSignedIn, async (req,res)=>{
     await incident.save()
 
     res.redirect(`/incidents/${incident._id}`)
+})
+
+router.delete("/:incidentId", isSignedIn, async (req, res) =>{
+    const incident = await Incident.findById(req.params.incidentId)
+
+    if (!incident) {
+        return res.status(404).send("Incident not found!")
+    }
+
+    if (incident.createdBy.toString() !== req.session.user._id.toString()) {
+        return res.status(403).send("You are not authorized to delete this incident!")
+    }
+
+    incident.isDeleted = true;
+    incident.deletedAt = new Date();
+
+    await incident.save();
+
+    res.redirect("/incidents")
 })
 
 module.exports = router;

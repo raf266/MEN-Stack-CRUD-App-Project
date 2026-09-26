@@ -21,6 +21,11 @@
 
     <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
         <a href="/incidents/<%= incident._id %>/edit">Edit Incident</a>
+
+        <form action="/incidents/<%= incident._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Incident</button>
+        </form>
+
         <% } %>
 
     <a href="/incidents">Back to Incidents</a>
