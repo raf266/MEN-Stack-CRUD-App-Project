@@ -25,6 +25,9 @@
                 <p>Operating System: <%= system.operatingSystem %></p>
 
                 <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+
+                    <a href="/incidents/<%= incident._id %>/systems/<%= system._id %>/edit">Edit System</a>
+
                     <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=DELETE" method="POST">
                         <button type="submit">Delete System</button>
                     </form>

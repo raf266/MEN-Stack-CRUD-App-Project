@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Affected System</h1>
+
+    <p>Incident: <%= incident.title %></p>
+
+    <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=PUT" method="POST">
+        <label for="hostname">Hostname:</label>
+        <input type="text" id="hostname" name="hostname" value="<%= system.hostname %>" required> 
+
+        <label for="ipAddress">IP Address:</label>
+        <input type="text" id="ipAddress" name="ipAddress" value="<%= system.ipAddress %>" required>
+
+        <label for="operatingSystem">Operating System:</label>
+        <input type="text" id="operatingSystem" name="operatingSystem" value="<%= system.operatingSystem %>" required>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="/incidents/<%= incident._id>">Cancel</a>
+</body>
+</html>
