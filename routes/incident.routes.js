@@ -26,7 +26,8 @@ router.get("/:incidentId", async (req,res) =>{
     }
 
     const affectedSystems = await AffectedSystem.find({
-        incident: incident._id
+        incident: incident._id,
+        isDeleted: false
     })
 
     res.render("incidents/show.ejs", {

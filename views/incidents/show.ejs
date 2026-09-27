@@ -23,6 +23,14 @@
                 <p>Hostname: <%= system.hostname %></p>
                 <p>IP Address: <%= system.ipAddress %></p>
                 <p>Operating System: <%= system.operatingSystem %></p>
+
+                <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+                    <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete System</button>
+                    </form>
+
+                <% } %>
+
            <% }) %>
 
         <% } %>
