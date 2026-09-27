@@ -1,7 +1,8 @@
 const router = require("express").Router();
 
 const Incident = require("../models/Incident.js")
-const isSignedIn = require("../middleware/is-signed-in.js")
+const isSignedIn = require("../middleware/is-signed-in.js");
+const AffectedSystem = require("../models/AffectedSystem.js");
 
 router.get("/", async (req, res)=>{
     const incidents = await Incident.find({
@@ -20,19 +21,24 @@ router.get("/new", isSignedIn, (req, res)=>{
 router.get("/:incidentId", async (req,res) =>{
     const incident = await Incident.findById(req.params.incidentId);
 
-    if (!incident) {
+    if (!incident || incident.isDeleted) {
         return res.status(404).send("Incident not found!")
     }
 
+    const affectedSystems = await AffectedSystem.find({
+        incident: incident._id
+    })
+
     res.render("incidents/show.ejs", {
-        incident: incident
+        incident: incident,
+        affectedSystems: affectedSystems
     })
 })
 
 router.get("/:incidentId/edit", isSignedIn, async (req, res)=>{
     const incident = await Incident.findById(req.params.incidentId)
 
-    if (!incident) {
+    if (!incident || incident.isDeleted) {
         return res.status(404).send("Incident not found!")
     }
 
@@ -57,7 +63,7 @@ router.post("/", isSignedIn, async (req,res)=>{
 router.put("/:incidentId", isSignedIn, async (req,res)=>{
     const incident = await Incident.findById(req.params.incidentId)
 
-    if (!incident) {
+    if (!incident || incident.isDeleted) {
         return res.status(404).send("Incident not found!")
     }
 
@@ -78,7 +84,7 @@ router.put("/:incidentId", isSignedIn, async (req,res)=>{
 router.delete("/:incidentId", isSignedIn, async (req, res) =>{
     const incident = await Incident.findById(req.params.incidentId)
 
-    if (!incident) {
+    if (!incident || incident.isDeleted) {
         return res.status(404).send("Incident not found!")
     }
 
