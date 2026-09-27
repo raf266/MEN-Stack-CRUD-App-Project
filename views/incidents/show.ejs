@@ -38,11 +38,30 @@
 
         <% } %>
 
+    <h2>Investigation Notes</h2>
+    <% if (investigationNotes.length === 0) { %>
+        <p>No investigation notes added.</p>
+    <% } else { %>
+        <% investigationNotes.forEach((note) => { %>
+                <p><%= note.content %></p>
+                <% if (note.author) { %>
+                    <p>Author: <%= note.author.username %></p>
+
+                <% } %>
+
+                <p>Added: <%= note.createdAt.toLocaleString() %></p>
+
+        <% }) %>
+
+    <% } %>
+
 
     <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
         <a href="/incidents/<%= incident._id %>/edit">Edit Incident</a>
 
         <a href="/incidents/<%= incident._id %>/systems/new">Add Affected System</a>
+
+        <a href="/incidents/<%= incident._id %>/notes/new">Add Investigation Note</a>
 
         <form action="/incidents/<%= incident._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Incident</button>

@@ -1,8 +1,9 @@
 const router = require("express").Router();
 
 const Incident = require("../models/Incident.js")
-const isSignedIn = require("../middleware/is-signed-in.js");
-const AffectedSystem = require("../models/AffectedSystem.js");
+const isSignedIn = require("../middleware/is-signed-in.js")
+const AffectedSystem = require("../models/AffectedSystem.js")
+const InvestigationNote = require("../models/InvestigationNote.js")
 
 router.get("/", async (req, res)=>{
     const incidents = await Incident.find({
@@ -30,9 +31,12 @@ router.get("/:incidentId", async (req,res) =>{
         isDeleted: false
     })
 
+    const InvestigationNotes = await InvestigationNote.find({incident: incident._id}).populate("author")
+
     res.render("incidents/show.ejs", {
         incident: incident,
-        affectedSystems: affectedSystems
+        affectedSystems: affectedSystems,
+        investigationNotes: investigationNotes
     })
 })
 

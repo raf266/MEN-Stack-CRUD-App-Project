@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Investigation Note</h1>
+
+    <p>Incident: <%= incident.title %></p>
+
+    <form action="/incidents/<%= incident._id %>/notes" method="POST">
+
+        <label for="content">Investigation Note:</label>
+
+        <textarea name="content" id="content" rows="6" required></textarea>
+
+        <button type="submit"> Add Note</button>
+
+    </form>
+
+    <a href="/incidents/<%= incident._id %>">Cancel</a>
+</body>
+</html>

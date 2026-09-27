@@ -52,8 +52,6 @@ router.post("/:incidentId/systems", isSignedIn, async (req,res)=>{
         return res.status(403).send("You are not authorized to add systems to this incident!")
     }
 
-    console.log(req.body)
-
     await AffectedSystem.create({
         hostname: req.body.hostname,
         ipAddress: req.body.ipAddress,

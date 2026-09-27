@@ -19,6 +19,7 @@ const authController = require("./routes/auth.routes.js");
 const indexController = require("./routes/index.routes.js");
 const incidentController = require("./routes/incident.routes.js");
 const affectedSystemController = require("./routes/affected-systems.routes.js")
+const investigationNotesController = require("./routes/investigation-notes.routes.js")
 
 
 // Middleware
@@ -59,6 +60,7 @@ app.use('/auth',authController)
 app.use('/',indexController)
 app.use("/incidents", incidentController)
 app.use("/incidents", affectedSystemController)
+app.use("/incidents", investigationNotesController)
 
 
 
