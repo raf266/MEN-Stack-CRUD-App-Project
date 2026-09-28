@@ -362,10 +362,38 @@ a {
     font-weight: 600;
 }
 
-.sign-up-details {
+.sign-up-container input {
+    background-color: #10243b;
+    color: white;
+    border: 1px solid #35485e;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
 
+.sign-up-container input:focus {
+    background-color: #19324e;
+}
+
+.sign-up-details {
+    color: #9baabd;
+    margin-bottom: 30px;
 }
 
 .sign-up-btn {
+    background-color: #1683ff;
+    color: white;
+    border: none;
+    padding: 13px;
+    margin-top: 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
+.sign-up-btn:hover {
+   background-color: #0873e6; 
 }
