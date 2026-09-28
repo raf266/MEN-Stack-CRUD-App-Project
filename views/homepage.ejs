@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <%- include('./partials/navbar') %>
 
-    <h1>Welcome to my Website</h1>
+    <main class="homepage">
+        <section class="home">
+            <div class="home-content">
+                <h1>Track, Investigate & Manage Security Incidents</h1>
+
+            <div class="home-buttons">
+                <a href="/incidents" class="home-btn">View Incidents</a>
+
+                <% if (!user) { %>
+                    <a href="/auth/sign-in" class="sign-in-btn">Sign In</a>
+                    <% } %>
+            </div>
+
+            </div>
+        </section>
+    </main>
     
 </body>
 </html>
