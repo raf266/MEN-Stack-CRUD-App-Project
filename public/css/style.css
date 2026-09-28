@@ -257,3 +257,115 @@ a {
 .view-btn:hover {
     background-color: #17263a;
 }
+
+.form-page {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    background-color: #0c1929;
+    border: 1px solid #26384c;
+    border-radius: 10px;
+}
+
+.form-container h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin: 18px 0 18px 0;
+    font-weight: 600;
+}
+
+.form-container select, .form-container input {
+    background-color: #10243b;
+    color: white;
+    border: 1px solid #35485e;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.form-container input:focus, .form-container select:focus {
+    background-color: #19324e;
+}
+
+.form-details {
+    color: #9baabd;
+    margin-bottom: 30px;
+}
+
+.incident-btn {
+    background-color: #1683ff;
+    color: white;
+    border: none;
+    padding: 13px;
+    margin-top: 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.incident-btn:hover {
+    background-color: #0873e6;
+}
+
+.cancel-btn {
+    text-align: center;
+    margin-top: 18px;
+    color: #9baabd;
+}
+
+.cancel-btn:hover {
+    color: white;
+}
+
+.sign-up-page {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.sign-up-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    background-color: #0c1929;
+    border: 1px solid #26384c;
+    border-radius: 10px;
+}
+
+.sign-up-container h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.sign-up-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-container label {
+    margin: 18px 0 18px 0;
+    font-weight: 600;
+}
+
+.sign-up-details {
+
+}
+
+.sign-up-btn {
+
+}

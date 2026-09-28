@@ -3,39 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Incidents</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Create New Incident</h1>
 
-    <form action="/incidents" method="post">
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title">
+    <%- include("../partials/navbar") %>
 
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description">
+    <main class="form-page">
+        <section class="form-container">
+            <h1>Create New Incident</h1>
+            <p class="form-details">Fill in the details of the new incident.</p>
 
-        <label for="severity">Severity:</label>
-        <select name="severity" id="severity" required>
-            <option value="" disabled selected>Select Severity</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-            <option value="Critical">Critical</option>
-        </select>
+            <form action="/incidents" method="post">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" required>
 
-        <label for="status">Status:</label>
-        <select name="status" id="status" required>
-            <option value="" disabled selected>Select Status</option>
-            <option value="Open">Open</option>
-            <option value="Investigating">Investigating</option>
-            <option value="Contained">Contained</option>
-            <option value="Resolved">Resolved</option>
-            <option value="Closed">Closed</option>
-        </select>
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description" required>
 
-        <button>Submit</button>
+                <label for="severity">Severity:</label>
+                <select name="severity" id="severity" required>
+                    <option value="" disabled selected>Select Severity</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
+                </select>
 
-    </form>
+                <label for="status">Status:</label>
+                <select name="status" id="status" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="Open">Open</option>
+                    <option value="Investigating">Investigating</option>
+                    <option value="Contained">Contained</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+                <button type="submit" class="incident-btn">Submit</button>
+
+                <a href="/incidents" class="cancel-btn">Cancel</a>
+
+            </form>
+        </section>
+
+
+            
+    </main>
+
+
+    
 </body>
 </html>

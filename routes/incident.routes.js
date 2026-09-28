@@ -31,7 +31,7 @@ router.get("/:incidentId", async (req,res) =>{
         isDeleted: false
     })
 
-    const InvestigationNotes = await InvestigationNote.find({incident: incident._id}).populate("author")
+    const investigationNotes = await InvestigationNote.find({incident: incident._id}).populate("author")
 
     res.render("incidents/show.ejs", {
         incident: incident,

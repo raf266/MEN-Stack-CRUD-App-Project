@@ -4,24 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
+
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
+    <main class="sign-up-page">
+      <section class="sign-up-container">
+          <h1>Create a new account!</h1>
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email">
+          <form action="/auth/sign-up" method="post" class="sign-up-details">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" />
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
 
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" />
 
-      <button type="submit">Sign up</button>
-    </form>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" />
+
+            <button type="submit" class="sign-up-btn">Sign up</button>
+          </form>
+      </section>
+       
+    </main>
+  
   </body>
 </html>

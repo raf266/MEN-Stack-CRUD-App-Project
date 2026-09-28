@@ -39,9 +39,10 @@
 
                     <div class="incident-actions">
                         
-                        <p>Severity: <span class="severity <%= incident.severity.toLowerCase() %>"><%= incident.severity %></span></p>
+                            <p>Severity: <span class="severity <%= incident.severity.toLowerCase() %>"><%= incident.severity %></span></p>
 
-                        <p>Status: <span class="status <%= incident.status.toLowerCase() %>"><%= incident.status %></span></p>
+                            <p>Status: <span class="status <%= incident.status.toLowerCase() %>"><%= incident.status %></span></p>
+     
 
                         <a href="/incidents/<%= incident._id %>" class="view-btn">View</a>
                     </div>
