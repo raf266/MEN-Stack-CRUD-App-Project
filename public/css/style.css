@@ -73,7 +73,7 @@ a {
     background-color: #17263a;
 }
 
-/* .navbar {
+.navbar {
     height: 85px;
     padding: 0 5%;
     display: flex;
@@ -81,4 +81,179 @@ a {
     justify-content: space-between;
     background-color: #0c1726;
     border-bottom: 1px solid #263649;
-} */
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #1683ff;
+}
+
+.nav-links span {
+    color: white;
+}
+
+.incident-page {
+    width: 90%;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: #0c1929;
+    border-radius: 10px;
+}
+
+.incidents-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.incidents-header h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.incidents-header p {
+    color: #9baabd;
+}
+
+.new-incident-btn {
+    background-color: #1683ff;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.new-incident-btn:hover {
+    background-color: #0873e6;
+}
+
+.incident-card {
+    background-color: #101e2e;
+    border: 1px solid #26384c;
+    border-radius: 9px;
+    padding: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.incident-card h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.incident-card h2 a {
+    color: white;
+}
+
+.incident-card h2 a:hover {
+    color: #1683ff;
+}
+
+.incident-info {
+    flex: 1;
+}
+
+.incident-description {
+    color: #cbd5e1;
+    margin-bottom: 10px;
+}
+
+.incident-date {
+    color: #8292a6;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.incident-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.incident-card p {
+    margin-bottom: 15px;
+}
+
+.severity, .status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.severity.critical {
+    background-color: #8d1e29;
+    color: white;
+}
+
+.severity.high {
+    background-color: #db2727;
+    color: white;
+}
+
+.severity.medium {
+    background-color: #e9a60b;
+    color: white;
+}
+
+.severity.low {
+    background-color: #1f9d55;
+    color: white;
+}
+
+.status.closed {
+    background-color: #64748b;
+    color: white;
+}
+
+.status.resolved {
+    background-color: #1f9d55;
+    color: white;
+}
+
+.status.contained {
+    background-color: #4e3d74;
+    color: white;
+}
+
+.status.investigating {
+    background-color: #d49c18;
+    color: white;
+}
+
+.status.open {
+    background-color: #1683ff;
+    color: white;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: #17263a;
+}

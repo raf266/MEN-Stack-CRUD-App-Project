@@ -1,13 +1,23 @@
-<nav>
+<nav class="navbar">
     
-    <a href="/">Homepage</a>
-    <% if (user){ %>
-    <a href="/auth/sign-out">Logout</a>
+    <div class="logo">
+        <a href="/">SOCTrack</a>
+    </div>
 
-    <% } else{ %>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Login</a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+            <a href="/incidents">Incidents</a>
 
-    <% } %>
+                <% if (user){ %>
+                    <span><%= user.username %></span>
+                    <a href="/auth/sign-out">Logout</a>
+
+                <% } else{ %>
+                    <a href="/auth/sign-up">Sign up</a>
+                    <a href="/auth/sign-in">Login</a>
+
+                <% } %>
+    </div>
+    
     
 </nav>

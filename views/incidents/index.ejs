@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Incidents</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Incidents</h1>
 
-    <a href="/incidents/new">Report a New Incident</a>
+    <%- include("../partials/navbar") %>
 
-    <% incidents.forEach((incident) =>{ %>
-        <h2>
-            <a href="/incidents/<%= incident._id %>">
-                <%= incident.title %>
-            </a>
-        </h2>
+    <main class="incident-page">
 
-        <p>Severity: <%= incident.severity %></p>
-        <p>Status: <%= incident.status %></p>
-    <% }) %>
+        <div class="incidents-header">
+            <div>
+                <h1>Incidents</h1>
+                <p>View & Manage the Incidents.</p>
+            </div>
+
+                <a href="/incidents/new" class="new-incident-btn">+ New Incident</a>
+        </div>
+
+        <div class="incidents-list">
+               <% incidents.forEach((incident) =>{ %>
+                <section class="incident-card">
+                    <div class="incident-info">
+                        <h2>
+                            <a href="/incidents/<%= incident._id %>">
+                                <%= incident.title %>
+                            </a>
+                        </h2>
+                    
+                            <p class="incident-description"><%= incident.description %></p>
+
+                            <p class="incident-date">Created: <%= incident.createdAt.toLocaleDateString() %></p>
+                    </div>
+                    
+
+                    <div class="incident-actions">
+                        
+                        <p>Severity: <span class="severity <%= incident.severity.toLowerCase() %>"><%= incident.severity %></span></p>
+
+                        <p>Status: <span class="status <%= incident.status.toLowerCase() %>"><%= incident.status %></span></p>
+
+                        <a href="/incidents/<%= incident._id %>" class="view-btn">View</a>
+                    </div>
+
+                </section>
+     
+            <% }) %>
+        </div>
+         
+    </main>
+
+
 </body>
 </html>
