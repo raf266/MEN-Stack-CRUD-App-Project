@@ -21,7 +21,55 @@ router.get("/new", isSignedIn, (req, res)=>{
 })
 
 router.get("/:incidentId/export", isSignedIn, async (req,res)=>{
-    
+    const incident = await Incident.findById(req.params.incidentId)
+
+    if (!incident || incident.isDeleted)
+        return res.status(404).send("Incident not found!")
+
+    const affectedSystems = await AffectedSystem.find({
+        incident: incident._id,
+        isDeleted: false
+    })
+
+    const investigationNotes = await InvestigationNote.find({incident: incident._id}).populate("author")
+
+    const doc = new PDFDocument()
+
+    res.setHeader("Content-Type", "application/pdf")
+    res.setHeader("Content-Disposition", "attachment; filename=incident-report.pdf")
+
+    doc.pipe(res)
+
+    doc.fontSize(22).text("SOCTrack Incident Report")
+    doc.moveDown()
+
+    doc.fontSize(16).text(incident.title)
+    doc.moveDown()
+
+    doc.fontSize(12).text(`Description: ${incident.description}`)
+    doc.text(`Severity: ${incident.severity}`)
+    doc.text(`Status: ${incident.status}`)
+    doc.text(`Created: ${incident.createdAt.toLocaleDateString()}`)
+
+    doc.moveDown()
+    doc.fontSize(16).text("Affected Systems")
+
+    affectedSystems.forEach((system) =>{
+        doc.fontSize(12).text(`Hostname: ${system.hostname}`)
+        doc.text(`IP Address: ${system.ipAddress}`)
+        doc.text(`Operating System: ${system.operatingSystem}`)
+        doc.moveDown()
+    })
+
+    doc.fontSize(16).text("Investigation Notes")
+
+    investigationNotes.forEach((note) =>{
+        doc.fontSize(12).text(note.content)
+        doc.text(`Author: ${note.author.username}`)
+        doc.text(`Date: ${note.createdAt.toLocaleDateString()}`)
+    })
+
+    doc.end()
 })
 
 router.get("/:incidentId", async (req,res) =>{

@@ -675,3 +675,20 @@ a {
     font-size: 15px;
     z-index: 1000;
 }
+
+.details-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.export-btn {
+    background-color: #1f9d55;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+.export-btn:hover {
+    background-color: #188247;
+}

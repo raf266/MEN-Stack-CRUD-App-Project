@@ -18,9 +18,14 @@
                         <p class="details-label">INCIDENT DETAILS</p>
                         <h1><%= incident.title %></h1>
                     </div>
-                    <% if ( user && incident.createdBy.toString()===user._id.toString() ) { %>
+
+                    <div class="details-actions">
+                        <a href="/incidents/<%= incident._id %>/export" class="export-btn">Export PDF</a>
+
+                        <% if ( user && incident.createdBy.toString()===user._id.toString() ) { %>
                         <a href="/incidents/<%= incident._id %>/edit" class="edit-incident-btn">Edit Incident</a>
                         <% } %>
+                    </div>
                 </div>
 
 
