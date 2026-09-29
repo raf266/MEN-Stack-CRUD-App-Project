@@ -26,7 +26,7 @@ It is an incident tracking application designed to help users record, manage sec
 8. As a user, I want to be able to go back to the incidents from the database if i accidently deleted it.
 9. As a user, I want to add the affected systems so I can know what are the impacted devices.
 10. As a user, I want to add investigation notes to document the process.
-11. 1. As a user, I want to export the incidents as a PDF to share it as a report.
+11. As a user, I want to export the incidents as a PDF to share it as a report.
 
 
 ## Screenshots

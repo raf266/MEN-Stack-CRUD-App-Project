@@ -270,8 +270,9 @@ a {
 }
 
 .form-page, .edit-page, .a-sys-page, .a-sys-edit-page, .investigation-page {
-    width: 90%;
-    margin: 40px auto;
+    width: 100%;
+    padding: 40px 5%;
+    margin: 0;
 }
 
 .form-container, .edit-container, .a-sys-container, .a-sys-edit-container, .investigation-container {
