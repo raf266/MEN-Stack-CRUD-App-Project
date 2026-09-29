@@ -7,36 +7,44 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit Incident</h1>
 
-    <form action="/incidents/<%= incident._id %>?_method=PUT" method="POST">
-        <label for="title">Incident Title:</label>
-        <input type="text" id="title" name="title" value="<%= incident.title %>" required>
+    <%- include("../partials/navbar") %>
 
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="<%= incident.description %>">
+    <main class="edit-page">
+        <section edit-container>
+            <h1>Edit Incident</h1>
 
-        <label for="severity">Severity:</label>
-        <select name="severity" id="severity" required>
-            <option value="Low" <%= incident.severity === "Low" ? "selected" : "" %>>Low</option>
-            <option value="Medium" <%= incident.severity === "Medium" ? "selected" : "" %>>Medium</option>                                    
-            <option value="High" <%= incident.severity === "High" ? "selected" : "" %>>High</option>
-            <option value="Critical" <%= incident.severity === "Critical" ? "selected" : "" %>>Critical</option>
-        </select>
+            <form action="/incidents/<%= incident._id %>?_method=PUT" method="POST">
+                <label for="title">Incident Title:</label>
+                <input type="text" id="title" name="title" value="<%= incident.title %>" required>
 
-        <label for="status">Status:</label>
-        <select name="status" id="status" required>
-            <option value="Open" <%= incident.status === "Open" ? "selected" : "" %>>Open</option>
-            <option value="Investigating" <%= incident.status === "Investigating" ? "selected" : "" %>>Investigating</option>
-            <option value="Contained" <%= incident.status === "Contained" ? "selected" : "" %>>Contained</option>
-            <option value="Resolved" <%= incident.status === "Resolved" ? "selected" : "" %>>Resolved</option>
-            <option value="Closed" <%= incident.status === "Closed" ? "selected" : "" %>>Closed</option>
-        </select>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="<%= incident.description %>">
 
-        <button type="submit">Save Changes</button>
+                <label for="severity">Severity:</label>
+                <select name="severity" id="severity" required>
+                    <option value="Low" <%= incident.severity === "Low" ? "selected" : "" %>>Low</option>
+                    <option value="Medium" <%= incident.severity === "Medium" ? "selected" : "" %>>Medium</option>                                    
+                    <option value="High" <%= incident.severity === "High" ? "selected" : "" %>>High</option>
+                    <option value="Critical" <%= incident.severity === "Critical" ? "selected" : "" %>>Critical</option>
+                </select>
 
-    </form>
+                <label for="status">Status:</label>
+                <select name="status" id="status" required>
+                    <option value="Open" <%= incident.status === "Open" ? "selected" : "" %>>Open</option>
+                    <option value="Investigating" <%= incident.status === "Investigating" ? "selected" : "" %>>Investigating</option>
+                    <option value="Contained" <%= incident.status === "Contained" ? "selected" : "" %>>Contained</option>
+                    <option value="Resolved" <%= incident.status === "Resolved" ? "selected" : "" %>>Resolved</option>
+                    <option value="Closed" <%= incident.status === "Closed" ? "selected" : "" %>>Closed</option>
+                </select>
 
-    <a href="/incidents/<%= incident._id %>">Cancel</a>
+                <button type="submit" class="edit-btn">Save Changes</button>
+
+            </form>
+
+            <a href="/incidents/<%= incident._id %>" class="cancel-edit-btn">Cancel</a>
+        </section>
+    </main>
+    
 </body>
 </html>

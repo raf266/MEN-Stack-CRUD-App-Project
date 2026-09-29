@@ -7,70 +7,108 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Incident Details</h1>
 
-    <h1><%= incident.title %></h1>
+    <%- include("../partials/navbar") %>
 
-    <p>Description: <%= incident.description %></p>
-    <p>Severity: <%= incident.severity %></p>
-    <p>Status: <%= incident.status %></p>
-    <p>Created At: <%= incident.createdAt.toLocaleDateString()  %></p>
+  <main class="details-page">
+            <section class="incident-details">
+                <div class="details-header">
+                    <div>
+                        <p class="details-label">INCIDENT DETAILS</p>
+                        <h1><%= incident.title %></h1>
+                    </div>
+                    <% if ( user && incident.createdBy.toString()===user._id.toString() ) { %>
+                        <a href="/incidents/<%= incident._id %>/edit" class="edit-incident-btn">Edit Incident</a>
+                        <% } %>
+                </div>
 
-    <h2>Affected Systems</h2>
-    <% if(affectedSystems.length === 0) { %>
-        <p>No affected systems added.</p>
-        <% } else { %>
-            <% affectedSystems.forEach((system) => { %>
-                <p>Hostname: <%= system.hostname %></p>
-                <p>IP Address: <%= system.ipAddress %></p>
-                <p>Operating System: <%= system.operatingSystem %></p>
 
+                <p class="details-description"><%= incident.description %></p>
+
+                <div class="incident-summary">
+                    <p>Severity: <span class="severity <%= incident.severity.toLowerCase() %>"><%= incident.severity %></span></p>
+                    <p>Status: <span class="status <%= incident.status.toLowerCase() %>"><%= incident.status %></span></p>
+                    <p>Created: <span><%= incident.createdAt.toLocaleDateString() %></span></p>
+
+                </div>
+            </section>
+
+        <section class="details-section">
+            <div class="section-header">
+                <h2>Affected Systems</h2>
                 <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
-
-                    <a href="/incidents/<%= incident._id %>/systems/<%= system._id %>/edit">Edit System</a>
-
-                    <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete System</button>
-                    </form>
-
+                    <a href="/incidents/<%= incident._id %>/systems/new" class="add-btn">+ Add System</a>
                 <% } %>
+            </div>
 
-           <% }) %>
+            <% if (affectedSystems.length === 0) { %>
+                <p class="empty-message">No affected systems added.</p>
+            <% } else { %>
+                <% affectedSystems.forEach((system) => { %>
+                    <div class="system-card">
+                        <div>
+                            <p class="system-label">Hostname</p>
+                            <p><%= system.hostname %></p>
+                        </div>
 
-        <% } %>
+                        <div>
+                            <p class="system-label">IP Address</p>
+                            <p><%= system.ipAddress %></p>
+                        </div>
 
-    <h2>Investigation Notes</h2>
-    <% if (investigationNotes.length === 0) { %>
-        <p>No investigation notes added.</p>
-    <% } else { %>
-        <% investigationNotes.forEach((note) => { %>
-                <p><%= note.content %></p>
-                <% if (note.author) { %>
-                    <p>Author: <%= note.author.username %></p>
+                        <div>
+                            <p class="system-label">Operating System</p>
+                            <p><%= system.operatingSystem %></p>
+                        </div>
 
+                        <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+                            <div class="system-actions">
+                                <a href="/incidents/<%= incident._id %>/systems/<%= system._id %>/edit">Edit</a>
+
+                                <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=DELETE" method="POST">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                        <% } %>
+                    </div>
+                <% }) %>
+            <% } %>
+        </section>
+
+        <section class="details-section">
+            <div class="section-header">
+                <h2>Investigation Notes</h2>
+                <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+                    <a href="/incidents/<%= incident._id %>/notes/new" class="add-btn">+ Add Note</a>
                 <% } %>
+            </div>
 
-                <p>Added: <%= note.createdAt.toLocaleString() %></p>
+            <% if (investigationNotes.length === 0) { %>
+                <p class="empty-message">No investigation notes added.</p>
+            <% } else { %>
+                <% investigationNotes.forEach((note) => { %>
+                    <div class="note-card">
+                        <p class="note-content"><%= note.content %></p>
 
-        <% }) %>
+                        <% if (note.author) { %>
+                            <p class="note-details">
+                                <%= note.author.username %> • <%= note.createdAt.toLocaleString() %>
+                            </p>
+                        <% } %>
+                    </div>
+                <% }) %>
+            <% } %>
+        </section>
 
-    <% } %>
+        <div class="details-footer">
+            <a href="/incidents" class="back-btn">← Back to Incidents</a>
 
-
-    <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
-        <a href="/incidents/<%= incident._id %>/edit">Edit Incident</a>
-
-        <a href="/incidents/<%= incident._id %>/systems/new">Add Affected System</a>
-
-        <a href="/incidents/<%= incident._id %>/notes/new">Add Investigation Note</a>
-
-        <form action="/incidents/<%= incident._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete Incident</button>
-        </form>
-
-        <% } %>
-
-    <a href="/incidents">Back to Incidents</a>
-
+            <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+                <form action="/incidents/<%= incident._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="delete-incident-btn">Delete Incident</button>
+                </form>
+            <% } %>
+        </div>
+  </main>
 </body>
 </html>

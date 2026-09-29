@@ -189,6 +189,14 @@ a {
     gap: 20px;
 }
 
+.incident-actions p {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    
+}
+
 .incident-card p {
     margin-bottom: 15px;
 }
@@ -333,12 +341,12 @@ a {
     color: white;
 }
 
-.sign-up-page {
+.sign-up-page, .edit-page {
     width: 90%;
     margin: 40px auto;
 }
 
-.sign-up-container {
+.sign-up-container, .edit-container {
     max-width: 700px;
     margin: auto;
     padding: 35px;
@@ -347,22 +355,22 @@ a {
     border-radius: 10px;
 }
 
-.sign-up-container h1 {
+.sign-up-container h1, .edit-container h1 {
     font-size: 32px;
     margin-bottom: 8px;
 }
 
-.sign-up-container form {
+.sign-up-container form, .edit-container form {
     display: flex;
     flex-direction: column;
 }
 
-.sign-up-container label {
+.sign-up-container label, .edit-container label {
     margin: 18px 0 18px 0;
     font-weight: 600;
 }
 
-.sign-up-container input {
+.sign-up-container input, .edit-container input {
     background-color: #10243b;
     color: white;
     border: 1px solid #35485e;
@@ -373,7 +381,7 @@ a {
     cursor: pointer;
 }
 
-.sign-up-container input:focus {
+.sign-up-container input:focus, .edit-container input:focus {
     background-color: #19324e;
 }
 
@@ -382,7 +390,7 @@ a {
     margin-bottom: 30px;
 }
 
-.sign-up-btn {
+.sign-up-btn, .edit-btn {
     background-color: #1683ff;
     color: white;
     border: none;
@@ -394,7 +402,7 @@ a {
     cursor: pointer;
 }
 
-.sign-up-btn:hover {
+.sign-up-btn:hover, .edit-btn:hover {
     color: #0873e6;
 }
 
@@ -461,4 +469,197 @@ a {
 
 .sign-in2-btn:hover {
     color: #0873e6;
+}
+
+.details-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.incident-details {
+    background-color: #0c1929;
+    border: 1px solid #26384c;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-label {
+    color: #1683ff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.details-header h1 {
+    font-size: 32px;
+}
+
+.details-description {
+    color: #cbd5e1;
+    margin: 25px 0;
+}
+
+.edit-incident-btn {
+    background-color: #1683ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+.edit-incident-btn:hover {
+    background-color: #0873e6;
+}
+
+.incident-summary {
+    display: flex;
+    gap: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #26384c;
+}
+
+.incident-summary p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9baabd;
+}
+
+.incident-summary p span {
+    color: white;
+}
+
+.details-section {
+    background-color: #0c1929;
+    border: 1px solid #26384c;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+}
+
+.add-btn {
+    background-color: #1683ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+.add-btn:hover {
+    background-color: #0873e6;
+}
+
+.system-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #101e2e;
+    border: 1px solid #26384c;
+    border-radius: 7px;
+    padding: 20px;
+    margin-bottom: 12px;
+}
+
+.system-card > div {
+    flex: 1;
+}
+
+.system-label {
+    color: #8292a6;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.system-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.system-actions a {
+    color: #1683ff;
+}
+
+.system-actions a:hover {
+    color: #60a5fa;
+}
+
+.system-actions button {
+    background: none;
+    border: none;
+    color: #db2727;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.system-actions button:hover {
+    color: #ff5555;
+}
+
+.note-card {
+    background-color: #101e2e;
+    border-left: 3px solid #1683ff;
+    padding: 20px;
+    margin-bottom: 12px;
+}
+
+.note-content {
+    margin-bottom: 12px;
+}
+
+.note-details {
+    color: #8292a6;
+    font-size: 13px;
+}
+
+.empty-message {
+    color: #8292a6;
+}
+
+.details-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    color: #9baabd;
+}
+
+.back-btn:hover {
+    color: white;
+}
+
+.delete-incident-btn {
+    background-color: #8d1e29;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.delete-incident-btn:hover {
+    background-color: #db2727;
 }

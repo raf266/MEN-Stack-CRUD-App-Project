@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Add Investigation Note</h1>
+    <main class="investigation-page">
+        <section class="investigation-container">
+            <h1>Add Investigation Note</h1>
 
-    <p>Incident: <%= incident.title %></p>
+            <p>Incident: <%= incident.title %></p>
 
-    <form action="/incidents/<%= incident._id %>/notes" method="POST">
+            <form action="/incidents/<%= incident._id %>/notes" method="POST">
 
-        <label for="content">Investigation Note:</label>
+                <label for="content">Investigation Note:</label>
 
-        <textarea name="content" id="content" rows="6" required></textarea>
+                <textarea name="content" id="content" rows="6" required></textarea>
 
-        <button type="submit"> Add Note</button>
+                <button type="submit" class="investigation-btn"> Add Note</button>
 
-    </form>
+            </form>
 
-    <a href="/incidents/<%= incident._id %>">Cancel</a>
+            <a href="/incidents/<%= incident._id %>" class="investigation-cancel-btn">Cancel</a>
+        </section>
+    </main>
+    
 </body>
 </html>
