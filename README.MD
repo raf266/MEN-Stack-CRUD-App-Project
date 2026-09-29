@@ -30,12 +30,12 @@ It is an incident tracking application designed to help users record, manage sec
 
 
 ## Screenshots
-1. ![EDR](/screenshots/MEN Stack CRUD.drawio.png) 
-1. ![home page](/screenshots/home-page.png)
-2. ![create-account page](/screenshots/create-account.png)
-3. ![login page](/screenshots/login.png)
-4. ![incidents](/screenshots/incident.png)
-5. ![incidents details page](/screenshots/incident-details.png)
+1. ![EDR](/images/MEN Stack CRUD.drawio.png) 
+1. ![home page](/images/home-page.png)
+2. ![create-account page](/images/create-account.png)
+3. ![login page](/images/login.png)
+4. ![incidents](/images/incident.png)
+5. ![incidents details page](/images/incident-details.png)
 
 
 ## Future Enhancements
