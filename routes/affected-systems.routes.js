@@ -35,7 +35,7 @@ router.get("/:incidentId/systems/:systemId/edit", isSignedIn, async (req,res)=>{
         return res.status(404).send("Affected system not found!")
     }
 
-    res.render("affected-system/edit.ejs", {
+    res.render("affected-systems/edit.ejs", {
         incident: incident,
         system: system
     })

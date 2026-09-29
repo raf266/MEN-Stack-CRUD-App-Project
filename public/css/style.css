@@ -266,12 +266,12 @@ a {
     background-color: #17263a;
 }
 
-.form-page, .edit-page, .a-sys-page, .a-sys-edit-page {
+.form-page, .edit-page, .a-sys-page, .a-sys-edit-page, .investigation-page {
     width: 90%;
     margin: 40px auto;
 }
 
-.form-container, .edit-container, .a-sys-container, .a-sys-edit-container {
+.form-container, .edit-container, .a-sys-container, .a-sys-edit-container, .investigation-container {
     max-width: 700px;
     margin: auto;
     padding: 35px;
@@ -280,22 +280,22 @@ a {
     border-radius: 10px;
 }
 
-.form-container h1, .edit-container h1, .a-sys-container h1, .a-sys-edit-container h1 {
+.form-container h1, .edit-container h1, .a-sys-container h1, .a-sys-edit-container h1, .investigation-container h1 {
     font-size: 32px;
     margin-bottom: 8px;
 }
 
-.form-container form, .edit-container form, .a-sys-container form, .a-sys-edit-container form {
+.form-container form, .edit-container form, .a-sys-container form, .a-sys-edit-container form, .investigation-container form {
     display: flex;
     flex-direction: column;
 }
 
-.form-container label, .edit-container label, .a-sys-container label, .a-sys-edit-container label {
+.form-container label, .edit-container label, .a-sys-container label, .a-sys-edit-container label, .investigation-container label {
     margin: 18px 0 18px 0;
     font-weight: 600;
 }
 
-.form-container select, .form-container input, .edit-container select, .edit-container input, .a-sys-container select, .a-sys-container input, .a-sys-edit-container input {
+.form-container select, .form-container input, .edit-container select, .edit-container input, .a-sys-container select, .a-sys-container input, .a-sys-edit-container input, .investigation-container textarea {
     background-color: #10243b;
     color: white;
     border: 1px solid #35485e;
@@ -306,7 +306,7 @@ a {
     cursor: pointer;
 }
 
-.form-container input:focus, .form-container select:focus, .edit-container input:focus, .edit-container select:focus, .a-sys-container input:focus, .a-sys-container select:focus, .a-sys-edit-container input:focus {
+.form-container input:focus, .form-container select:focus, .edit-container input:focus, .edit-container select:focus, .a-sys-container input:focus, .a-sys-container select:focus, .a-sys-edit-container input:focus, .investigation-container textarea:focus {
     background-color: #19324e;
 }
 
@@ -315,7 +315,7 @@ a {
     margin-bottom: 30px;
 }
 
-.incident-btn, .edit-btn, .a-sys-btn, .a-sys-edit-btn {
+.incident-btn, .edit-btn, .a-sys-btn, .a-sys-edit-btn, .investigation-btn {
     background-color: #1683ff;
     color: white;
     border: none;
@@ -327,17 +327,17 @@ a {
     cursor: pointer;
 }
 
-.incident-btn:hover, .edit-btn:hover, .a-sys-btn:hover, .a-sys-edit-btn:hover  {
+.incident-btn:hover, .edit-btn:hover, .a-sys-btn:hover, .a-sys-edit-btn:hover, .investigation-btn:hover  {
     background-color: #0873e6;
 }
 
-.cancel-btn, .cancel-edit-btn, .a-sys-cancel-btn, .cancel-a-sys-edit-btn  {
+.cancel-btn, .cancel-edit-btn, .a-sys-cancel-btn, .cancel-a-sys-edit-btn, .investigation-cancel-btn  {
     text-align: center;
     margin-top: 18px;
     color: #9baabd;
 }
 
-.cancel-btn:hover, .cancel-edit-btn:hover, .a-sys-cancel-btn:hover, .cancel-a-sys-edit-btn:hover {
+.cancel-btn:hover, .cancel-edit-btn:hover, .a-sys-cancel-btn:hover, .cancel-a-sys-edit-btn:hover, .investigation-cancel-btn:hover {
     color: white;
 }
 

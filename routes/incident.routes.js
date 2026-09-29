@@ -89,7 +89,8 @@ router.get("/:incidentId", async (req,res) =>{
     res.render("incidents/show.ejs", {
         incident: incident,
         affectedSystems: affectedSystems,
-        investigationNotes: investigationNotes
+        investigationNotes: investigationNotes,
+        message: req.session.message
     })
 })
 

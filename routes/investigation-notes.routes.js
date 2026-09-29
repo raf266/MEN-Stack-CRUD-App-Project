@@ -18,7 +18,8 @@ router.get("/:incidentId/notes/new", isSignedIn, async (req, res) => {
     }
 
     res.render("investigation-notes/new.ejs", {
-        incident: incident
+        incident: incident,
+        message: req.session.message
     })
 })
 
@@ -41,7 +42,7 @@ router.post("/:incidentId/notes", isSignedIn, async (req, res) => {
         author: req.session.user._id
     })
 
-    res.session.message = "Investigation note added successfully!"
+    req.session.message = "Investigation note added successfully!"
 
     res.redirect(`/incidents/${incident._id}`)
 })
