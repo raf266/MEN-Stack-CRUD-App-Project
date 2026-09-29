@@ -41,6 +41,8 @@ router.post("/:incidentId/notes", isSignedIn, async (req, res) => {
         author: req.session.user._id
     })
 
+    res.session.message = "Investigation note added successfully!"
+
     res.redirect(`/incidents/${incident._id}`)
 })
 

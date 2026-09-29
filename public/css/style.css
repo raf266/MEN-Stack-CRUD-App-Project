@@ -663,3 +663,15 @@ a {
 .delete-incident-btn:hover {
     background-color: #db2727;
 }
+
+.toast {
+    position: fixed;
+    top: 105px;
+    right: 30px;
+    background-color: #1f9d55;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    z-index: 1000;
+}

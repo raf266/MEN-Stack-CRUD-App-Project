@@ -46,6 +46,12 @@ app.use(
 );
 app.use(passUserToView)
 
+app.use((req, res, next) =>{
+  res.locals.message = req.session.message
+  delete req.session.message
+  next()
+})
+
 
 
 

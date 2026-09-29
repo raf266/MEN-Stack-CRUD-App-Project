@@ -4,6 +4,7 @@ const Incident = require("../models/Incident.js")
 const isSignedIn = require("../middleware/is-signed-in.js")
 const AffectedSystem = require("../models/AffectedSystem.js")
 const InvestigationNote = require("../models/InvestigationNote.js")
+const PDFDocument = require("pdfkit")
 
 router.get("/", async (req, res)=>{
     const incidents = await Incident.find({
@@ -17,6 +18,10 @@ router.get("/", async (req, res)=>{
 
 router.get("/new", isSignedIn, (req, res)=>{
     res.render("incidents/new.ejs")
+})
+
+router.get("/:incidentId/export", isSignedIn, async (req,res)=>{
+    
 })
 
 router.get("/:incidentId", async (req,res) =>{
@@ -61,6 +66,8 @@ router.post("/", isSignedIn, async (req,res)=>{
     req.body.createdBy = req.session.user._id
 
     const incident = await Incident.create(req.body);
+
+    req.session.message = "Incident created successfully!"
 
     res.redirect(`/incidents/${incident._id}`)
 })  

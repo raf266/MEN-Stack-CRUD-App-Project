@@ -33,6 +33,9 @@ router.post("/sign-up", async (req, res) => {
   // validation logic
 
   const user = await User.create(req.body);
+
+  req.session.message = "Account created successfully!"
+
   res.redirect("/auth/sign-in");
 });
 
@@ -68,6 +71,8 @@ router.post("/sign-in", async (req, res) => {
     username: userInDatabase.username,
     _id: userInDatabase._id
   };
+
+  req.session.message = "Signed in successfully!"
 
   res.redirect("/");
 });

@@ -58,6 +58,8 @@ router.post("/:incidentId/systems", isSignedIn, async (req,res)=>{
         operatingSystem: req.body.operatingSystem,
         incident: incident._id
     })
+    req.session.message = "Affected system added successfully!"
+
     res.redirect(`/incidents/${incident._id}`)
 })
 
