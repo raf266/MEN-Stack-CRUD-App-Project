@@ -21,7 +21,10 @@ a {
     display: flex;
     align-items: center;
     padding: 0 7%;
-    background: rgba(0, 102, 255, 0.15);
+    background: linear-gradient(rgba(8, 17, 29, 0.35), rgba(8, 17, 29, 0.35)), url("/images/background1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .home {
@@ -332,6 +335,7 @@ a {
 }
 
 .cancel-btn, .cancel-edit-btn, .a-sys-cancel-btn, .cancel-a-sys-edit-btn, .investigation-cancel-btn  {
+    display: block;
     text-align: center;
     margin-top: 18px;
     color: #9baabd;
@@ -691,4 +695,53 @@ a {
 
 .export-btn:hover {
     background-color: #188247;
+}
+
+.form-background {
+    min-height: 100vh;
+    background-image: url("/images/image.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.evidence-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.evidence-form input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    background-color: #10243b;
+    color: #cbd5e1;
+    border: 1px solid #35485e;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.file-label:hover {
+    background-color: #19324e;
+    color: white;
+}
+
+.upload-btn {
+    background-color: #1683ff;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #0873e6;
 }

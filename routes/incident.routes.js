@@ -5,6 +5,9 @@ const isSignedIn = require("../middleware/is-signed-in.js")
 const AffectedSystem = require("../models/AffectedSystem.js")
 const InvestigationNote = require("../models/InvestigationNote.js")
 const PDFDocument = require("pdfkit")
+const Evidence = require("../models/Evidence.js")
+const upload = require("../middleware/upload.js")
+
 
 router.get("/", async (req, res)=>{
     const incidents = await Incident.find({
@@ -70,6 +73,27 @@ router.get("/:incidentId/export", isSignedIn, async (req,res)=>{
     })
 
     doc.end()
+})
+
+router.post("/:incidentId/evidence", isSignedIn, upload.single("evidence"), async (req,res)=>{
+    const incident = await Incident.findById(req.params.incidentId)
+
+    if(!incident || incident.isDeleted) {
+        return res.status(404).send("Incident not found!")
+    }
+
+    const evidence = new Evidence({
+        originalName: req.file.originalname,
+        fileName: req.file.filename,
+        filePath: "/uploads/" + req.file.filename,
+        incident: incident.id
+    })
+
+    await evidence.save()
+
+    req.session.message = "Evidence uploaded successfully!"
+
+    res.redirect(`/incidents/${incident._id}`)
 })
 
 router.get("/:incidentId", async (req,res) =>{

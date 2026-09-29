@@ -106,6 +106,20 @@
             <% } %>
         </section>
 
+        <section class="details-section">
+            <div class="section-header">
+                <h2>Evidence</h2>
+            </div>
+
+            <% if (user && incident.createdBy.toString() === user._id.toString()) { %>
+                <form action="/incidents/<%= incident._id %>/evidence" method="POST" enctype="multipart/form-data" class="evidence-form">
+                    <label for="evidence" class="file-label">Choose Evidence File</label>
+                    <input type="file" name="evidence" id="evidence" required>
+                    <button type="submit" class="upload-btn">Upload Evidence</button>
+                </form>
+            <% } %>
+        </section>
+
         <div class="details-footer">
             <a href="/incidents" class="back-btn">← Back to Incidents</a>
 
