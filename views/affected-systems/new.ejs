@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Affected Systems</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Add Affected System</h1>
-    <p>Incident: <%= incident.title %></p>
-    <form action="/incidents/<%= incident._id %>/systems" method="POST">
-        <label for="hostname">Hostname:</label>
-        <input type="text" name="hostname" id="hostname" required>
 
-        <label for="ipAddress">IP Address:</label>
-        <input type="text" name="ipAddress" id="ipAddress" required>
+    <%- include("../partials/navbar") %>
 
-        <label for="operatingSystem">Operating System:</label>
-        <input type="text" name="operatingSystem" id="operatingSystem" required>
+    <main class="a-sys-page">
+        <section class="a-sys-container">
+            <h1>Add Affected System</h1>
 
-        <button type="submit">Add System</button>
-    </form>
+            <p class="a-sys-details">Fill in the details of the new affected system.</p>
+            <p>Incident: <%= incident.title %></p>
 
-    <a href="/incidents/<%= incident._id %>">Cancel</a>
+            <form action="/incidents/<%= incident._id %>/systems" method="POST">
+                <label for="hostname">Hostname:</label>
+                <input type="text" name="hostname" id="hostname" required>
+
+                <label for="ipAddress">IP Address:</label>
+                <input type="text" name="ipAddress" id="ipAddress" required>
+
+                <label for="operatingSystem">Operating System:</label>
+                <input type="text" name="operatingSystem" id="operatingSystem" required>
+
+                <button type="submit" class="a-sys-btn">Add System</button>
+            </form>
+
+            <a href="/incidents/<%= incident._id %>" class="a-sys-cancel-btn">Cancel</a>
+        </section>
+    </main>
+
 
 </body>
 </html>

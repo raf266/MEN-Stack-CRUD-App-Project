@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Affected Systems</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit Affected System</h1>
 
-    <p>Incident: <%= incident.title %></p>
+    <%- include("../partials/navbar") %>
 
-    <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=PUT" method="POST">
-        <label for="hostname">Hostname:</label>
-        <input type="text" id="hostname" name="hostname" value="<%= system.hostname %>" required> 
+    <main class="a-sys-edit-page">
+        <section class="a-sys-edit-container">
+            <h1>Edit Affected System</h1>
 
-        <label for="ipAddress">IP Address:</label>
-        <input type="text" id="ipAddress" name="ipAddress" value="<%= system.ipAddress %>" required>
+            <p>Incident: <%= incident.title %></p>
 
-        <label for="operatingSystem">Operating System:</label>
-        <input type="text" id="operatingSystem" name="operatingSystem" value="<%= system.operatingSystem %>" required>
+            <form action="/incidents/<%= incident._id %>/systems/<%= system._id %>?_method=PUT" method="POST">
+                <label for="hostname">Hostname:</label>
+                <input type="text" id="hostname" name="hostname" value="<%= system.hostname %>" required> 
 
-        <button type="submit">Save Changes</button>
-    </form>
+                <label for="ipAddress">IP Address:</label>
+                <input type="text" id="ipAddress" name="ipAddress" value="<%= system.ipAddress %>" required>
 
-    <a href="/incidents/<%= incident._id>">Cancel</a>
+                <label for="operatingSystem">Operating System:</label>
+                <input type="text" id="operatingSystem" name="operatingSystem" value="<%= system.operatingSystem %>" required>
+
+                <button type="submit" class="a-sys-edit-btn">Save Changes</button>
+            </form>
+
+            <a href="/incidents/<%= incident._id>" class="cancel-a-sys-edit-btn">Cancel</a>
+        </section>
+    </main>
+
+   
 </body>
 </html>
